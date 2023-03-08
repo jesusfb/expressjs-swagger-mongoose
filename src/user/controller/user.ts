@@ -5,9 +5,28 @@ import { autoInjectable, injectable } from "tsyringe";
 let router: Express = require("express").Router();
 @autoInjectable()
 class UserController {
-  constructor(private readonly userService: UserService) {}
+  private readonly userService: UserService;
+  constructor(userService: UserService) {
+    this.userService = userService;
+  }
   async getAllUsers(_req: Request, res: Response) {
     const result = await this.userService.findAll();
+    return res.json(result);
+  }
+  async findById(req: Request, res: Response) {
+    const result = await this.userService.findById(req.params.id);
+    return res.json(result);
+  }
+  async editById(req: Request, res: Response) {
+    const result = await this.userService.editById(req.params.id, req.body);
+    return res.json(result);
+  }
+  async deleteById(req: Request, res: Response) {
+    const result = await this.userService.deleteById(req.params.id);
+    return res.json(result);
+  }
+  async register(req: Request, res: Response) {
+    const result = await this.userService.deleteById(req.params.id);
     return res.json(result);
   }
 }

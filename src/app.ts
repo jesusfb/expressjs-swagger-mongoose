@@ -18,11 +18,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));{{{}}}
 const swaggerDocument = require('./../swagger.json');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.get("/hello",(req,res)=>{
-  res.send("Hello world")
-})
-
-
 app.listen(port, () => {
     console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
   });

@@ -11,4 +11,13 @@ export class UserService {
   async register(data: IUser): Promise<IUser> {
     return this.userRepository.save(data);
   }
+  public async deleteById(id: any) {
+    return this.userRepository.deleteOne(id);
+  }
+  public async findById(id: any) {
+    return this.userRepository.findOne(id);
+  }
+  public async editById(id: any, data: IUser) {
+    return this.userRepository.editById(id, data);
+  }
 }
