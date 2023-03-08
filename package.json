@@ -1,0 +1,31 @@
+{
+  "name": "expressjsmongooseswagger",
+  "version": "1.0.0",
+  "description": "crud application",
+  "main": "app.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srid5969/expressjs-swagger-mongoose.git"
+  },
+  "keywords": [
+    "mongoose",
+    "mongodb",
+    "swagger",
+    "jest",
+    "expressjs",
+    "typescript"
+  ],
+  "author": "sridhar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srid5969/expressjs-swagger-mongoose/issues"
+  },
+  "homepage": "https://github.com/srid5969/expressjs-swagger-mongoose#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  }
+}
