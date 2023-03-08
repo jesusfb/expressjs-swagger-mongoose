@@ -9,6 +9,7 @@ import db from "./common/manager.ts/config";
 import { auth } from './common/middleware/middleware.ts';
 import user from './user/router/user.routers';
 const port: number = 8000;
+
 mongoose.connect(db);
 const database = mongoose.connection;
 database.on("error", (error) => console.error());
