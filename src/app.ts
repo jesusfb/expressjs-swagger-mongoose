@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors";
 import db from "./common/manager.ts/config";
+import user from './user/router/user.routers';
+
 
 const port: number = 8080;
 mongoose.connect(db);
