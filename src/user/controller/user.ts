@@ -5,8 +5,8 @@ import { autoInjectable, injectable } from "tsyringe";
 let router: Express = require("express").Router();
 @autoInjectable()
 class UserController {
-  private readonly userService: UserService;
-  constructor(userService: UserService) {
+  private  userService: UserService;
+  constructor( private  userService: UserService) {
     this.userService = userService;
   }
   async getAllUsers(_req: Request, res: Response) {
