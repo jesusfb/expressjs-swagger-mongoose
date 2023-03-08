@@ -5,3 +5,8 @@ describe("sum module", () => {
     expect(1 + 2).toBe(3);
   });
 });
+describe("subtract module", () => {
+    test("subtract 5-2 to equal 3", () => {
+      expect(5 - 2).toBe(3);
+    });
+  });
