@@ -1,0 +1,15 @@
+{
+  "openapi": "3.0.3",
+  "host": "localhost:8000",
+  "basePath": "/",
+  "info": {
+    "title": "Simple API",
+    "description": "A simple  API",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Sridhar",
+      "email": "sri@web.com",
+      "url": "localhost:8080"
+    }
+  }
+}
