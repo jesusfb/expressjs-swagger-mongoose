@@ -1,11 +1,10 @@
 import { autoInjectable as MongoRepository, inject } from "tsyringe";
 import "reflect-metadata";
-
 import { Model } from "mongoose";
 import User, { IUser } from "../model/user";
 import { IUserRepository } from "./IUserRepository";
-
-@MongoRepository()
+import { injectable } from "tsyringe";
+@injectable()
 export class UserRepository implements IUserRepository {
   constructor(private userModel: Model<IUser>) {
     this.userModel = User;

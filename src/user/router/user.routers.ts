@@ -1,12 +1,14 @@
 import { Request, Response, Express } from "express";
+import { Get, Route } from "tsoa";
+
 import UserController from "../controller/user";
-import { UserService } from "../service/user";
+import { container } from "tsyringe";
 let router: Express = require("express").Router();
-let service;UserService
-let controller=new UserController(service);
-router.post("/register",controller.register);
-router.delete("/user/",controller.deleteById);
-router.patch("/user/",controller.editById);
-router.get("/user/",controller.findById);
-router.get("/users",controller.getAllUsers);
-export default router
+const controller = container.resolve(UserController);
+
+router.post("/register", controller.register);
+router.delete("/user/", controller.deleteById);
+router.patch("/user/", controller.editById);
+router.get("/user/", controller.findById);
+router.get("/users", controller.getAllUsers);
+export default router;

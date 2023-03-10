@@ -1,14 +1,19 @@
-import { autoInjectable as Service } from "tsyringe";
 import { IUser } from "../model/user";
 import { UserRepository } from "../repository/userRepository";
-@Service()
-export class UserService {
-  constructor(private readonly userRepository: UserRepository) {}
-
-  async findAll(): Promise<Array<IUser>> {
+import { IUserRepository } from "../repository/IUserRepository";
+import { autoInjectable as Service, inject } from "tsyringe";
+import { IUserService } from "./IUserService";
+import {injectable} from "tsyringe";
+import "reflect-metadata";
+@injectable()
+export class UserService implements IUserService {
+  constructor(
+    @inject("UserRepository") private readonly userRepository: IUserRepository
+  ) {}
+  public async findAll(): Promise<Array<IUser>> {
     return this.userRepository.findAll();
   }
-  async register(data: IUser): Promise<IUser> {
+  public async register(data: IUser): Promise<IUser> {
     return this.userRepository.save(data);
   }
   public async deleteById(id: any) {

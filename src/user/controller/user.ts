@@ -1,13 +1,14 @@
 import { Request, Response, Express } from "express";
+import { IUserService } from "../service/IUserService";
 import { UserService } from "../service/user";
-import { autoInjectable, injectable } from "tsyringe";
-// import { register } from "../service/user";
+import "reflect-metadata";
+import { autoInjectable, inject } from "tsyringe";
 let router: Express = require("express").Router();
-@autoInjectable()
+import {injectable} from "tsyringe";
+@injectable()
 class UserController {
-  private  userService: UserService;
-  constructor( private  userService: UserService) {
-    this.userService = userService;
+  constructor(@inject("UserService") private  userService: IUserService) {
+    // this.userService=UserService
   }
   async getAllUsers(_req: Request, res: Response) {
     const result = await this.userService.findAll();
@@ -27,8 +28,7 @@ class UserController {
   }
   async register(req: Request, res: Response) {
     const result = await this.userService.deleteById(req.params.id);
-    return res.json(result);
+    return res.json(result); 
   }
 }
-
 export default UserController;
